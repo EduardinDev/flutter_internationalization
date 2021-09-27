@@ -4,12 +4,11 @@ import 'package:flutter_internationalization/translations/codegen_loader.g.dart'
 
 import 'app.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
-  runApp(
-    EasyLocalization(
+  runApp(EasyLocalization(
       path: 'assets/translations',
       supportedLocales: [
         Locale('en'),
@@ -18,5 +17,4 @@ Future<void> main() async {
       fallbackLocale: Locale('en'),
       assetLoader: CodegenLoader(),
       child: MyApp()));
-} 
-
+}
