@@ -1,16 +1,30 @@
 # flutter_internationalization
 
-A new Flutter project.
+Este proyecto utiliza la librería de easy_location
 
-## Getting Started
+# Paso 1
+Crear el directorio assets/translations
 
-This project is a starting point for a Flutter application.
+# Paso 2
+crear los archivos .json con las inciales del lenguaje que va a contener cada archivo. Ejemplo:
+-   en.json
+-   es.json
 
-A few resources to get you started if this is your first Flutter project:
+# Paso 3
+Programar de acuerdo al ejemplo
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+# Paso 4 : Ejecutar los siguiente comandos 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Comando 1: Genera el archivo codegen_loader.g.dart
+Toma la ruta de "assets/translations" (que es donde se encuentran los archivos json con las traducciones)
+y en base a esos archivos json crea la clase CodegenLoader que contiene maps con las traducciones en el 
+directorio lib/translations.
+
+1. flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations"
+
+## Comando 2: Genera el archivo locale_keys.g.dart
+Toma la ruta de "assets/translations" (que es donde se encuentran los archivos json con las traducciones)
+y en base a esos archivos json crea el archivo locale_keys.g.dart en  directorio lib/translations que contiene la clase LocalKeys con las claves de los maps creados anteriormente.
+
+2. flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations" -o "locale_keys.g.dart" -f keys
+
