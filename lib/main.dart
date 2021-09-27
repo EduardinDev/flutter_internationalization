@@ -1,22 +1,22 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_internationalization/translations/codegen_loader.g.dart';
 
-void main() => runApp(MyApp());
+import 'app.dart';
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
-      ),
-    );
-  }
-}
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      path: 'assets/translations',
+      supportedLocales: [
+        Locale('en'),
+        Locale('es'),
+      ],
+      fallbackLocale: Locale('en'),
+      assetLoader: CodegenLoader(),
+      child: MyApp()));
+} 
+
