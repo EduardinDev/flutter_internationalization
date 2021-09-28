@@ -14,7 +14,7 @@ void main() async {
         Locale('en'),
         Locale('es'),
       ],
-      fallbackLocale: Locale('en'),
+        
       assetLoader: CodegenLoader(),
       child: MyApp()));
 }

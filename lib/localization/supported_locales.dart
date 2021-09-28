@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const english = Locale('en');
+const english = Locale('en', 'US');
 const spanish = Locale('es');
 
 const supportedLocales = [
